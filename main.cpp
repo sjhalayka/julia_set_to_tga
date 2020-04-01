@@ -44,7 +44,6 @@ int main(int argc, char **argv)
     
     // Calculate Julia set
     complex<float> Z(x_grid_min, y_grid_min);
-    vector< complex<float> > trajectory_points;
 
     for (size_t x = 0; x < x_res; x++, Z += x_step_size)
     {
@@ -54,7 +53,7 @@ int main(int argc, char **argv)
         {
             size_t float_index = y * x_res + x;
 
-            float f = iterate_2d(trajectory_points, Z, C, max_iterations, threshold);
+            float f = iterate_2d(Z, C, max_iterations, threshold);
 
             // Truncate
             if (f > threshold)
@@ -68,13 +67,7 @@ int main(int argc, char **argv)
 
             luma.pixel_data[float_index] = f;
         }
-
-        cout << endl;
     }
-
-    cout << endl;
-
-
 
 	write_float_grayscale_to_tga("out.tga", luma);
 

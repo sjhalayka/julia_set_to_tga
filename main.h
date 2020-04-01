@@ -20,20 +20,15 @@ using std::endl;
 using namespace std;
 
 
-float iterate_2d(vector< complex<float> >& trajectory_points,
+float iterate_2d(
     complex<float> Z,
     const complex<float> C,
     const short unsigned int max_iterations,
     const float threshold)
 {
-    trajectory_points.clear();
-    trajectory_points.push_back(Z);
-
     for (short unsigned int i = 0; i < max_iterations; i++)
     {
         Z = Z * Z + C;
-
-        trajectory_points.push_back(Z);
 
         if (abs(Z) >= threshold)
             break;
