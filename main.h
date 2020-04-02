@@ -9,18 +9,12 @@
 #include "image.h"
 
 
-#include <iostream>
-using std::cout;
-using std::endl;
-
-#include <iostream>
 #include <cmath>
-#include <vector>
 #include <complex>
 using namespace std;
 
 
-float iterate_julia(
+inline float iterate_julia(
     complex<float> Z,
     const complex<float> C,
     const short unsigned int max_iterations,
