@@ -20,7 +20,7 @@ using std::endl;
 using namespace std;
 
 
-float iterate_2d(
+float iterate_julia(
     complex<float> Z,
     const complex<float> C,
     const short unsigned int max_iterations,
